@@ -30,13 +30,13 @@
 // console.log("Total de números pares de 1 a 50:", contadorPares);
 
 
-let numero = 1;
-let resultado = numero;
+// let numero = 1;
+// let resultado = numero;
 
-do {
-  resultado = numero * 2;
-  numero = resultado;
-}while (resultado <= 1000);
+// do {
+//   resultado = numero * 2;
+//   numero = resultado;
+// }while (resultado <= 1000);
 
-console.log("O número final é:", numero);
+// console.log("O número final é:", numero);
 
