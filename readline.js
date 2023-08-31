@@ -72,3 +72,70 @@
 // } while ( i <= 100);
 
 // console.log("Soma dos 50 primeiros numeros pares ( usando do-while): " + soma);
+
+//  const readline = require('readline-sync');
+//  var n = parseInt(readline.question("Digite um numero N: "));
+//  var count = 0;
+//  var num = 1;
+
+//  while (count < n){
+//     if (num % 2 !==0){
+//         console.log(num);
+//         count++;
+//     }
+//     num++;
+//  }
+
+// const readline = require('readline-sync');
+
+// const diasTrabalhados = parseFloat(readline.question("Digite o numero de dias trabalhados: "));
+// const valorDiario = 30.00;
+// const salarioBruto = diasTrabalhados * valorDiario;
+// const desconto = salarioBruto * 0.08;
+// const salarioLiquido = salarioBruto - desconto;
+//  console.log(`O valor liquido a ser  pago é R$ ${salarioLiquido.toFixed(2)}`);
+
+// const readline = require('readline-sync');
+// function formatarTempo(hora, minuto, segundo){
+//     return `${hora}:${minuto}:${segundo}`;
+// }
+// const horaInicio = parseInt(readline.question('Digite a hora de ìnicio: '));
+// const minutoInicio = parseInt(readline.question('Digite o minuto de ìnicio: '));
+// const segundoInicio = parseInt(readline.question('Digite o segundo de ìnicio: '));
+
+// const duracaoSegundos = parseInt(readline.question('Digite a duração em segundos: '));
+
+// const totalSegundosInicio = horaInicio * 3600 + minutoInicio * 60 + segundoInicio;
+// const totalSegundosTermino = totalSegundosInicio + duracaoSegundos;
+
+// const horaTermino = Math.floor(totalSegundosTermino / 3600);
+// const minutosTermino = Math.floor((totalSegundosTermino % 3600) / 60);
+// const segundosTermino = totalSegundosTermino % 60;
+
+// console.log(`O horário de termino da experciência será: ${formatarTempo(horaTermino, minutosTermino, segundosTermino)}`);
+
+
+// const readline = require('readline-sync');
+
+// const horasNormais = parseFloat(readline.question('Digite o total de horas normais trabalhadas: '));
+// const horasExtras = parseFloat(readline.question('Digite o total de horas extras trabalhadas: '));
+
+// const salarioHoraNormal = 10.00;
+// const salarioHoraExtra = 15.00;
+// const salarioAnual = (horasNormais * salarioHoraNormal) + (horasExtras * salarioHoraExtra);
+
+// console.log(`O salário anual do trabalhador é R$ ${salarioAnual.toFixed(2)}.`);
+
+// const readline = require('readline-sync');
+
+// const numero1 = readline.questionInt('Digite o primeiro numero: ');
+// const numero2 = readline.questionInt('Digite o segundo numero: ');
+// const numero3 = readline.questionInt('Digite o terceiro numero: ');
+
+// var numeros = [ numero1, numero2, numero3];
+// numeros.sort(function(a,b) {
+//     if (a>b) return 1;
+//     if (a<b) return -1;
+//     return 0;
+// });
+// console.log(numeros);
