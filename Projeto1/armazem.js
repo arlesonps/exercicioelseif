@@ -1,3 +1,4 @@
+const { log } = require('console');
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -13,7 +14,8 @@ function showMenu() {
   console.log("2. Listar itens");
   console.log("3. Excluir itens");
   console.log("4. Modificar itens");
-  console.log("5. Sair do menu");
+  console.log("5. Vender itens");
+  console.log("6. Sair do menu");
 
   rl.question("Escolha uma opção: ", function(opçao) {
     switch (opçao) {
@@ -30,6 +32,8 @@ function showMenu() {
         modifyItem();
         break;
       case '5':
+        venderItem();  
+      case '6':
         rl.close();
         break;
       default:
@@ -44,12 +48,14 @@ function addItem() {
   rl.question("Digite o nome do item: ", function(nome) {
     rl.question("Digite o código do item: ", function(code) {
       rl.question("Digite o preço do item: ", function(preço) {
-        storeItems.push({ nome, code, preço: parseFloat(preço) });
+        rl.question("Digite a quantidade do item: ", function(quantidade) {
+        storeItems.push({ nome, code, preço: parseFloat(preço), quantidade: parseInt(quantidade) });
         console.log("Item adicionado com sucesso!");
         showMenu();
       });
     });
   });
+}); 
 }
 
 function listItems() {
@@ -59,6 +65,7 @@ function listItems() {
     console.log(`Nome: ${item.nome}`);
     console.log(`Código: ${item.code}`);
     console.log(`Preço: ${item.preço}`);
+    console.log(`Quantidade em estoque: ${item.quantidade}`);
     console.log("-------------------");
   });
   showMenu();
@@ -83,16 +90,36 @@ function modifyItem() {
     if (index !== -1) {
       rl.question("Digite o novo nome do item: ", function(nome) {
         rl.question("Digite o novo preço do item: ", function(preço) {
+          rl.question("Digite a nova quantidade do item em estoque: ", function(quantidade) {
           storeItems[index].nome = nome;
           storeItems[index].preço = parseFloat(preço);
+          storeItems[index].preço = parseFloat(quantidade);
           console.log("Item modificado com sucesso!");
           showMenu();
         });
       });
+    }); 
+  } else {
+    console.log("Item não encontrado.");
+    showMenu();
+  }
+});
+}
+function venderItem() {
+  rl.question("Digite o codigo do item que deseja vender: ", function(code) {
+    const index = storeItems.findIndex(item => item.code === code);
+    if (index !== -1) {
+      const item = storeItems[index];
+      if (item.quantidade > 0) {
+        item.quantidade--;
+        console.log(`Venda de ${item.nome} realizada. Quantidade restante do estoque: ${item.quantidade}`);
+      } else {
+        console.log("Item fora do estoque. Não é psosivel realizar venda");
+      }
     } else {
       console.log("Item não encontrado.");
-      showMenu();
     }
+  showMenu();  
   });
 }
 
