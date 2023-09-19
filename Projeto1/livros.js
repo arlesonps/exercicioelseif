@@ -1,14 +1,18 @@
 const readline = require('readline-sync');
 
+
 class SistemaDeGestaoDeLivros {
     constructor() {
-        this.geradorID = 0;
+        this.geradorID = null;
         this.livros = [];
         this.found = false;
         this.novaIteracao = false;
         this.opcaoMenu;
         this.numPaginas;
     }
+    gerarID() {
+        return Math.floor(Math.random() * 10000) + 1;
+      }
 
     cont() {
         console.log('****************************************');
@@ -59,7 +63,7 @@ class SistemaDeGestaoDeLivros {
     adicionarLivro() {
         console.clear();
         console.log('********* CADASTRO DE LIVROS ***********');
-        this.geradorID++;
+        this.geradorID = this.gerarID();
         let tituloLivro, autorLivro, numPaginas;
 
         tituloLivro = readline.question('Digite o titulo / nome do Livro: ');
