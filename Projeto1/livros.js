@@ -108,7 +108,7 @@ function procurarLivro() {
     let searchLivro;
     console.log('********** BUSCAR LIVRO ***********');
     console.log('Escolha qual metodo da busca: \n');
-    opcaoBusca = readline.questionInt('1 titulo , 2 autor , 3 id', {limitMessage: 'Digite um numero valido'});
+    opcaoBusca = readline.questionInt('1 titulo , 2 autor , 3 id: ', {limitMessage: 'Digite um numero valido'});
     switch (opcaoBusca) {
         case 1:
             searchLivro = readline.question('Digite titulo do Livro: ');
@@ -122,14 +122,16 @@ function procurarLivro() {
             break;
     }
 
-    for (const l of livros) {
+    for (const l of livros)
+    {
         if (l.id == searchLivro || l.autor == searchLivro || l.titulo == searchLivro) {
+            console.clear() 
             this.found = true;
             console.log(`ID: ${l.id} => Titulo: ${l.titulo}`);
             console.log(`\t- Autor: ${l.autor}`);
             console.log(`\t- Pag: ${l.paginas}`);
-            //cont()
-            console.clear()
+            cont()
+           
         }
     }
     if (!this.found) {
