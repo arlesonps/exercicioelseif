@@ -11,7 +11,7 @@ class SistemaDeGestaoDeLivros {
         this.numPaginas;
     }
     gerarID() {
-        return Math.floor(Math.random() * 10000) + 1;
+        return Math.floor(Math.random() * 10000) + 1; //// Gera um número inteiro aleatório entre 1 e 10000 (ou o intervalo desejado)
       }
 
     cont() {
@@ -108,7 +108,7 @@ class SistemaDeGestaoDeLivros {
         let searchLivro;
         console.log('********** BUSCAR LIVRO ***********');
         console.log('Escolha qual método da busca: \n');
-        const opcaoBusca = readline.questionInt('1 titulo , 2 autor , 3 id: ', { limitMessage: 'Digite um numero valido' });
+        const opcaoBusca = readline.questionInt(' ➥ 1 TÍTULO , 2 AUTOR , 3 ID: ', { limitMessage: 'Digite um numero valido' });
         switch (opcaoBusca) {
             case 1:
                 searchLivro = readline.question('Digite titulo do Livro: ');
@@ -123,7 +123,10 @@ class SistemaDeGestaoDeLivros {
         }
 
         for (const l of this.livros) {
-            if (l.id == searchLivro || l.autor == searchLivro || l.titulo == searchLivro) {
+            const searchLower = searchLivro.toLowerCase(); // Converter a entrada do usuário para minúsculas
+            const tituloLower = l.titulo.toLowerCase(); // Converter o título do livro para minúsculas
+            const autorLower = l.autor.toLowerCase(); // Converter o autor do livro para minúsculas
+            if (l.id == searchLivro || autorLower == searchLower || tituloLower == searchLower) {
                 console.clear()
                 this.found = true;
                 console.log(`ID: ${l.id} => Titulo: ${l.titulo}`);
@@ -143,7 +146,7 @@ class SistemaDeGestaoDeLivros {
         console.clear()
         this.found = false;
         console.log('***** ALTERAR CADASTRO DE UM LIVRO *****');
-        const change = readline.questionInt('Digite o ID do livro a ser alterado: ', { limitMessage: 'Digite um numero valido' });
+        const change = readline.questionInt('➥ Digite o ID do livro a ser alterado: ', { limitMessage: 'Digite um numero valido' });
         for (const l of this.livros) {
             if (l.id == change) {
                 this.found = true;
@@ -175,7 +178,7 @@ class SistemaDeGestaoDeLivros {
         console.clear()
         this.found = false;
         console.log('***** EXCLUIR CADASTRO DE UM LIVRO *****');
-        const excluirLivro = readline.questionInt('Digite o ID do Livro a ser excluido: ', { limitMessage: 'Digite um numero valido' });
+        const excluirLivro = readline.questionInt('➥ Digite o ID do Livro a ser excluido: ', { limitMessage: 'Digite um numero valido' });
         for (const l of this.livros) {
             if (l.id == excluirLivro) {
                 this.found = true;
