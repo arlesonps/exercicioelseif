@@ -1,0 +1,19 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "variavel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node variavel.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ts": "^0.2.2",
+    "ts-node": "^10.9.1",
+    "tsc": "^2.0.4",
+    "tsc-node": "^0.0.3"
+  }
+}
